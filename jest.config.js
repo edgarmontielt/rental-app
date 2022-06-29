@@ -154,7 +154,7 @@ module.exports = {
 
   // The glob patterns Jest uses to detect test files
   transform: {
-    '^.+\\.(js|jsx)?$': 'babel-jest'
+    '^testing.+\\.(js|jsx)?$': 'babel-jest'
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
