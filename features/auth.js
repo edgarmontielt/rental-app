@@ -1,7 +1,24 @@
+import { PrismaClient } from '@prisma/client'
+const prisma = new PrismaClient()
+
 const getUserByEmail = () => {
     return 'Edgar'
 }
 
-const logIn = () => {}
+const getUserByIdProvider = async (idProvider) => {
+    return await prisma.user.findFirst({
+        where: {
+            idProvider: {
+                has: idProvider
+            }
+        }
+    })
+}
 
-export { getUserByEmail, logIn }
+const logIn = () => { }
+
+export {
+    getUserByEmail,
+    getUserByIdProvider,
+    logIn
+}

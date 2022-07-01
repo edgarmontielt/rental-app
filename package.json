@@ -3,23 +3,29 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env NODE_ENV=development next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "cross-env NODE_ENV=production next start",
     "lint": "next lint",
-    "test": "jest --config=jest.config.js"
+    "prebuild": "prisma generate",
+    "db_push": "dotenv -e .env.development.local -- npx prisma db push",
+    "test": "dotenv -e .env.development.local -- jest --config=jest.config.js"
   },
   "jest": {},
   "dependencies": {
+    "@prisma/client": "^4.0.0",
+    "cross-env": "^7.0.3",
     "jest-environment-jsdom": "^28.1.2",
     "next": "12.1.6",
     "next-auth": "^4.7.0",
+    "prisma": "^4.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.4",
+    "dotenv-cli": "^5.1.0",
     "eslint": "8.18.0",
     "eslint-config-next": "12.1.6",
     "jest": "^28.1.1"
