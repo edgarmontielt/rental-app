@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "cross-env NODE_ENV=production next start",
     "lint": "next lint",
-    "prebuild": "prisma generate",
     "test": "dotenv -e .env.test.local -- jest --config=jest.config.js",
+    "prebuild": "prisma generate",
     "db_push": "dotenv -e .env.development.local -- npx prisma db push",
     "db_push_test": "dotenv -e .env.test.local -- npx prisma db push"
   },

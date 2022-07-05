@@ -7,6 +7,7 @@ export default function Home() {
   return (
     <>
       <h1>Home</h1>
+      {console.log(session)}
       {session ?
         <div>
           Signed in as {session.user.email} <br />

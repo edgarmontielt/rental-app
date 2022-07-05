@@ -16,22 +16,22 @@ export default NextAuth({
   ],
   callbacks: {
     async jwt({ token, account }) {  // account is available when signIn
-      // console.log(token, account)
       if (account) {
-        const user = await getUserByIdProvider(account.providerAccountId)
+        let user = await getUserByIdProvider(account.providerAccountId)
         if (!user) {
-          await createUser({
+          user = await createUser({
             name: token.name,
             email: token.email,
             photoURL: token.picture
           }, account.providerAccountId, account.provider)
         }
+        token.role = user.role 
       }
       return token
     },
     async session({ session, user, token }) {
-      // console.log({ session, user, token })
       session.user.id = token.sub
+      session.user.role = token.role
       return session
     }
   }

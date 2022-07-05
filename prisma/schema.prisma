@@ -11,16 +11,43 @@ datasource db {
 }
 
 model User {
-  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
   idProvider String[]
   provider   String[]
-  email      String @unique
+  email      String   @unique
   name       String
   photoURL   String
-  role       Role   @default(USER)
+  role       Role     @default(USER)
 }
 
 enum Role {
   USER
   ADMIN
+}
+
+model Home {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  images      String[]
+  description String
+  price       Float
+  type        HomeType
+  location    Location?
+}
+
+enum HomeType {
+  HOUSE
+  DEPARMENT
+}
+
+model Location {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  country String
+  state   String
+  city    String
+  street  String
+  number  Int
+  zipCode Int
+  home    Home?  @relation(fields: [homeID], references: [id])
+  homeID  String @unique @db.ObjectId
 }
