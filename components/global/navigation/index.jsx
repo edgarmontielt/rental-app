@@ -8,6 +8,7 @@ export default function Navbar() {
         <div>
             <ul>
                 <Link href={'/auth/login'}>Login</Link>
+                <Link href={'/admin/homes/add'}>Add Home</Link>
             </ul>
         </div>
     </Nav>
