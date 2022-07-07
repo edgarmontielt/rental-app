@@ -7,21 +7,30 @@
 ## Technologies
 
 
-## Clone the repository
+
+## Getting Started
+
+Clone the repository
 
 ```bash
 git clone https://github.com/edgarmontielt/rental-app.git
 ```
 
-## Getting Started
-
-First, rebuild node_modules:
+Rebuild node_modules:
 
 ```bash
 npm install
 ```
 
-Second, run the development server:
+Write the enviroment variables: 
+
+```bash
+.env.development.local
+# or
+.env.test.local
+```
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -35,8 +44,6 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 
 ## Set enviroment variables to development
-#### .env.development.local
-
 ```
 NEXTAUTH_SECRET=
 NEXTAUTH_URL=
@@ -47,15 +54,14 @@ FACEBOOK_APP_SECRET=
 DATABASE_URL=
 ```
 
-## Set enviroment variables to testing
-#### .env.test.local
+#### For Development in:
 
-```
-NEXTAUTH_SECRET=
-NEXTAUTH_URL=
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
-FACEBOOK_APP_ID=
-FACEBOOK_APP_SECRET=
-DATABASE_URL=
-```
+````bash
+.env.development.local
+````
+
+#### For Testing in:
+
+````bash
+.env.test.local
+````

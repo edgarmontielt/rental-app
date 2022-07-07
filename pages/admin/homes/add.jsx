@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { Formik, Form, Field } from 'formik'
-import AdminPage from '../../../components/global/admin'
+import AdminPage from '../../../components/admin'
 
 export default function Add() {
 

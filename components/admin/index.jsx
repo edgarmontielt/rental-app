@@ -1,4 +1,4 @@
-import useValidateRole from '../../../hooks/useValidateRole';
+import useValidateRole from '../../hooks/useValidateRole';
 
 export default function AdminPage({ children }) {
   const [status, data] = useValidateRole('ADMIN')

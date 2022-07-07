@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import { SessionProvider } from 'next-auth/react'
-import MainLayout from '../components/global/layouts/main'
+import MainLayout from '../components/layouts/main'
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   return (
