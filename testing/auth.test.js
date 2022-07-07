@@ -1,5 +1,5 @@
 // First step: write a test
-import { createUser, getUserByEmail, getUserByIdProvider, logIn } from "../features/auth"
+import { createUser, getUserByIdProvider } from "../features/auth"
 import { initializeDB } from './config/db'
 
 beforeAll(() => {

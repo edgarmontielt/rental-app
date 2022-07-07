@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { Formik, Form, Field } from 'formik'
+import AdminPage from '../../../components/global/admin'
 
 export default function Add() {
 
@@ -9,7 +10,7 @@ export default function Add() {
     const home = await axios.post('/api/home/create', newData)
   }
   return (
-    <>
+    <AdminPage>
       <h2>Add Home</h2>
       <Formik
         initialValues={{
@@ -50,6 +51,6 @@ export default function Add() {
           <button type='submit'> Save</button>
         </Form>
       </Formik>
-    </>
+    </AdminPage>
   )
 }

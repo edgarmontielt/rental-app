@@ -2,7 +2,6 @@ import { createHome } from "../features/homes"
 
 describe('Homes', () => {
   it('should create a new home', async () => {
-
     const data = {
       homeDetails: {
         title: 'Familiar House with good location',
@@ -24,8 +23,6 @@ describe('Homes', () => {
       }
     }
     const home = await createHome(data)
-
-    console.log(home);
     expect(home).toBeDefined()
     expect(home).not.toBeNull()
     expect(home).toMatchObject({
