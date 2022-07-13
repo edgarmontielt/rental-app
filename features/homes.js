@@ -14,3 +14,11 @@ export const createHome = async (data) => {
   })
   return home
 }
+
+export const getAll = async () => {
+  return await prisma.home.findMany({
+    include: {
+      location: true
+    }
+  })
+}
