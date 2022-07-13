@@ -1,6 +1,6 @@
 import { getCsrfToken } from 'next-auth/react'
-import FacebookAuthBtn from '../../components/global/providers/facebook'
-import GoogleAuthBtn from '../../components/global/providers/google'
+import FacebookAuthBtn from '../../components/providers/facebook'
+import GoogleAuthBtn from '../../components/providers/google'
 
 export async function getServerSideProps(context) {
   const csrfToken = await getCsrfToken(context)

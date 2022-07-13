@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 export default function useValidateRole(role) {
   const { data, status } = useSession()
   const router = useRouter()
+  
   useEffect(() => {
     if (
       status === 'unauthenticated' ||
