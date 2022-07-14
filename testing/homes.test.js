@@ -61,4 +61,15 @@ describe('Homes', () => {
     expect(homes.length).not.toBe(0)
     expect(homes[0]).toMatchObject(home)
   })
+
+  it('should get homes by filter', async() => {
+    const homes = await getAll({
+      price: {
+        gt: 1000,
+        lt: 2000,
+      }
+    })
+    expect(homes).toBeDefined()
+    expect(homes.length).toBe(0)
+  });
 })

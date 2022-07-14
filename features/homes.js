@@ -15,8 +15,9 @@ export const createHome = async (data) => {
   return home
 }
 
-export const getAll = async () => {
+export const getAll = async (filter) => {
   return await prisma.home.findMany({
+    where: filter, 
     include: {
       location: true
     }
