@@ -1,9 +1,20 @@
 import styled from "styled-components"
 
 const Nav = styled.nav`
+    max-width: 1280px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
 `
 
+const NavContainer = styled.div`
+    margin-left: auto;
+`
 
-export { Nav }
+const SectionLinks = styled.ul`
+    display: flex;
+    gap: 1rem;
+`
+
+
+export { Nav, NavContainer, SectionLinks }
