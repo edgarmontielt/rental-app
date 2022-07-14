@@ -1,4 +1,4 @@
-import { createHome, getAll } from "../features/homes"
+import { createHome, getAll, getOne } from "../features/homes"
 
 const home = {
   title: 'Familiar House with good location',
@@ -20,6 +20,7 @@ const home = {
 }
 
 describe('Homes', () => {
+  let id
   it('should create a new home', async () => {
     const data = {
       homeDetails: {
@@ -42,9 +43,16 @@ describe('Homes', () => {
       }
     }
     const home = await createHome(data)
+    id = home.id
     expect(home).toBeDefined()
     expect(home).not.toBeNull()
     expect(home).toMatchObject(home)
+  })
+
+  it('should get one home', async () => {
+    const home = await getOne(id)
+    expect(home).toBeDefined()
+    expect(home).toMatchObject({id, ...home})
   })
 
   it('should get all homes', async () => {

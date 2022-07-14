@@ -6,7 +6,7 @@ const apollo = new ApolloServer({
   typeDefs,
   resolvers: {
     Query: {
-      homes: () => getAll
+      homes: getAll
     }
   }
 })
@@ -14,11 +14,15 @@ const apollo = new ApolloServer({
 const server = apollo.start()
 
 export default async function graphQL(req, res) {
-  res.setHeader('Access-Control-Allow-Headers', 'true')
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
+  res.setHeader(
+    'Access-Control-Allow-Origin',
+    'https://studio.apollographql.com'
+  );
   res.setHeader(
     'Access-Control-Allow-Headers',
     'Origin, X-Requested-With, Content-Type, Accept'
-  )
+  );
 
   if (req.method == 'OPTIONS') return res.end()
 

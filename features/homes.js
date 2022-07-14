@@ -22,3 +22,14 @@ export const getAll = async () => {
     }
   })
 }
+
+export const getOne = async (id) => {
+  return await prisma.home.findUnique({
+    where: {
+      id
+    }, 
+    include: {
+      location: true
+    }
+  })
+}

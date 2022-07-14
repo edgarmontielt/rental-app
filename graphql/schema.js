@@ -34,6 +34,6 @@ const typeDefs = gql`
   type Query {
     homes: [Home]
   }
-`;
+`
 
 export default typeDefs;
