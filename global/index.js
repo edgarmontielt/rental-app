@@ -1,15 +1,32 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
+    *,
+    ::before,
+    ::after {
+      box-sizing: border-box;
+      border-width: 0;
+      border-style: solid;
+      border-color: #e5e7eb;
+    }
     body {
         margin: 0;
         padding: 0;
         font-family: 'Montserrat-Medium';
         font-size: 12px;
     }
-    a{ text-decoration:none; color: black }
-    ul {list-style: none }
-    h1,h2,h3,h4,h5,h6 {
+    a {
+        color: inherit;
+        text-decoration: inherit;
+    }
+    ol,
+    ul,
+    menu {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    h1, h2, h3, h4 ,h5, h6 {
         margin: 0;
     } 
     h1 {
@@ -29,6 +46,19 @@ const GlobalStyles = createGlobalStyle`
     }
     h6{ 
         font-size: 12px;
+    }
+
+    button,
+    input,
+    optgroup,
+    select,
+    textarea {
+        font-family: inherit;
+        font-size: 100%;
+        line-height: inherit;
+        color: inherit;
+        margin: 0;
+        padding: 0;
     }
 `;
 

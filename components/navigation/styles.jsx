@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 const Nav = styled.nav`
     max-width: 1280px;
-    margin: 0 auto;
+    margin: 1rem auto;
     display: flex;
     align-items: center;
 `
