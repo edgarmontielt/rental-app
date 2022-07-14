@@ -1,12 +1,13 @@
 import { ApolloServer } from 'apollo-server-micro'
-import { getAll } from '../../../features/homes'
+import { getAll, getOne } from '../../../features/homes'
 import typeDefs from '../../../graphql/schema'
 
 const apollo = new ApolloServer({
   typeDefs,
   resolvers: {
     Query: {
-      homes: getAll
+      homes: async (parent, args, context, info) => await getAll(args.filter),
+      home: async (parent, args) => await getOne(args.id)
     }
   }
 })
