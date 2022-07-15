@@ -3,7 +3,7 @@
 
 // export default typeDefs
 
-const { ApolloServer, gql } = require("apollo-server");
+const { gql } = require("apollo-server");
 
 const typeDefs = gql`
   enum HomeType {
@@ -45,6 +45,10 @@ const typeDefs = gql`
     gte: Float
     lt: Float
     lte: Float
+  }
+
+  type Mutation {
+    deleteHome(id:String): Home
   }
 `
 
