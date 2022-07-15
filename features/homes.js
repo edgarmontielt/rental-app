@@ -34,3 +34,11 @@ export const getOne = async (id) => {
     }
   })
 }
+
+export const deleteOne = async (id) => {
+  return await prisma.home.delete({
+    where: {
+      id
+    }
+  })
+}

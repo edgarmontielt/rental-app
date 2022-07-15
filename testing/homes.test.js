@@ -1,4 +1,4 @@
-import { createHome, getAll, getOne } from "../features/homes"
+import { createHome, deleteOne, getAll, getOne } from "../features/homes"
 
 const home = {
   title: 'Familiar House with good location',
@@ -52,7 +52,7 @@ describe('Homes', () => {
   it('should get one home', async () => {
     const home = await getOne(id)
     expect(home).toBeDefined()
-    expect(home).toMatchObject({id, ...home})
+    expect(home).toMatchObject({ id, ...home })
   })
 
   it('should get all homes', async () => {
@@ -62,7 +62,7 @@ describe('Homes', () => {
     expect(homes[0]).toMatchObject(home)
   })
 
-  it('should get homes by filter', async() => {
+  it('should get homes by filter', async () => {
     const homes = await getAll({
       price: {
         gt: 1000,
@@ -71,5 +71,20 @@ describe('Homes', () => {
     })
     expect(homes).toBeDefined()
     expect(homes.length).toBe(0)
-  });
+  })
+
+  it('should delete one home', async () => {
+    const homeDel = await deleteOne(id)
+    expect(homeDel).toBeDefined()
+    expect(homeDel).toMatchObject({
+      title: 'Familiar House with good location',
+      images: [
+        'https://images.unsplash.com/photo-1505691723518-36a5ac3be353?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+        'https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80'
+      ],
+      description: '30 rooms',
+      price: 500560.9,
+      type: 'HOUSE',
+    })
+  })
 })
