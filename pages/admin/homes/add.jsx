@@ -1,13 +1,27 @@
 import axios from 'axios'
 import { Formik, Form, Field } from 'formik'
+import dynamic from 'next/dynamic'
+import { useRef } from 'react'
 import AdminPage from '../../../components/admin'
+
+const Editor = dynamic(
+  () => import('../../../components/editor'), {
+  ssr: false
+})
 
 export default function Add() {
 
+  const editor = useRef(null)
+
   const createHome = async (data) => {
-    const newData = { ...data, homeDetails: { ...data.homeDetails } }
-    newData.homeDetails.images = data.homeDetails.images.split(',')
-    const home = await axios.post('/api/home/create', newData)
+
+    const content = await editor.current.save()
+
+    console.log(content);
+
+    // const newData = { ...data, homeDetails: { ...data.homeDetails } }
+    // newData.homeDetails.images = data.homeDetails.images.split(',')
+    // const home = await axios.post('/api/home/create', newData)
   }
   return (
     <AdminPage>
@@ -18,7 +32,6 @@ export default function Add() {
             title: "",
             images: "",
             price: 0,
-            description: "",
             type: "HOUSE",
           },
           locationDetails: {
@@ -35,7 +48,9 @@ export default function Add() {
       >
         <Form>
           <Field type='text' name='homeDetails.title' placeholder='Title' />
-          <Field type='text' name='homeDetails.description' placeholder='Description' />
+          <div>
+            {Editor && <Editor instance={editor} />}
+          </div>
           <Field type='text' name='homeDetails.images' placeholder='Images' />
           <Field type='number' name='homeDetails.price' placeholder='Price' />
           <Field as='select' name='homeDetails.type' >
