@@ -6,7 +6,7 @@ export default function HomeModule() {
   return (
     <>
       <Header />
-      <Slider  />
+      <Slider />
     </>
   )
 }
